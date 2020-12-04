@@ -6,6 +6,7 @@ public class Calendar {
 
 	private static final int[] maxDayOfMonth = { 31, 28, 30, 31, 30, 31, 31, 31, 30, 31, 30, 31 };
 	private static final char[] dayOfWeek = { '일', '월', '화', '수', '목', '금', '토' };
+	private static String PROMPT = "> ";
 
 	public int getMaxDayOfMonth(int inputMonth) {
 		if (inputMonth < 1 || inputMonth > 12) {
@@ -14,13 +15,13 @@ public class Calendar {
 		return maxDayOfMonth[inputMonth - 1];
 	}
 
-	public void showAllDays() {
+	public void showAllDays(int maxDay) {
 		System.out.println(" ");
 		for (char eachDay : dayOfWeek) {
 			System.out.print(eachDay + "  ");
 		}
 		System.out.println("\n---------------------");
-		for (int date = 1; date < 29; date++) {
+		for (int date = 1; date < maxDay + 1; date++) {
 			System.out.printf("%3d", date);
 			if (date % 7 == 0) {
 				System.out.println(" ");
@@ -32,24 +33,23 @@ public class Calendar {
 
 		Scanner scan = new Scanner(System.in);
 		Calendar cal = new Calendar();
+		int inputMonth = 0;
+		int maxDay = 0;
 		
-		int inputMonth[] = new int[10];
-		System.out.println("반복횟수를 입력하세요.");
-
-		int numOfLoop = scan.nextInt();	
-		
-
-		System.out.println("달을 입력하세요.");
-		for(int i = 0; i < numOfLoop; i++ ) {
-			inputMonth[i] = scan.nextInt();
-		}
-		
-		for(int i = 0; i < numOfLoop; i++ ) {
-			System.out.printf("%d월은 %d일까지 있습니다.", inputMonth[i], cal.getMaxDayOfMonth(inputMonth[i]));
+		while(true) {
+			System.out.println("달을 입력하세요.");
+			System.out.print(PROMPT);
+			
+			inputMonth = scan.nextInt();
+			
+			if(inputMonth == -1) break;
+			if(inputMonth > 12 || inputMonth < 1) continue;
+			maxDay = cal.getMaxDayOfMonth(inputMonth);
+			cal.showAllDays(maxDay);
 			System.out.println("");
 		}
 		
-//		cal.showAllDays();
 		scan.close();
+		System.out.println("Done");
 	}
 }
