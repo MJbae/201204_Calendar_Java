@@ -11,8 +11,8 @@ public class Sum {
 		int inputA = scan.nextInt();
 		int inputB = scan.nextInt();
 		
-		int result = inputA + inputB;
+		System.out.printf("두 수의 합은 %d입니다.", inputA + inputB);
 		
-		System.out.println("두 수의 합은 " + result + "입니다.");
+		scan.close();
 	}
 }
