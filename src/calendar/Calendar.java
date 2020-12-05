@@ -5,13 +5,12 @@ import java.util.HashMap;
 
 public class Calendar {
 
-	
 	private static final String[] DATES = {"   ", "   ", "   ", "   ", "   ", "   ", "   ",
 			"  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9", " 10", 
 			" 11", " 12", " 13", " 14", " 15", " 16", " 17", " 18", " 19", " 20", 
 			" 21", " 22", " 23", " 24", " 25", " 26", " 27", " 28", " 29", " 30"," 31"};
 	
-	HashMap<String, Integer> DAY_OF_WEEK_HASH = new HashMap<String, Integer>(){{
+	HashMap<String, Integer> DAY_OF_WEEK_HASH = new HashMap<>(){{
 		put("SU", 0);
 		put("MO", 1);
 		put("TU", 2);
@@ -99,8 +98,8 @@ public class Calendar {
 
 		Scanner scan = new Scanner(System.in);
 		Calendar cal = new Calendar();
-		int month = 0;
-		int year = 0;
+		int month = -1;
+		int year = -1;
 		String day = "";
 
 		while (true) {
