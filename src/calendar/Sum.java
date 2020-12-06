@@ -1,18 +1,19 @@
 package calendar;
 
-import java.util.Scanner;
-
 public class Sum {
+	private static String[] DATES = { "  1", "  2", "  3", "  4",
+			"  5", "  6", "  7", "  8", "  9", " 10", " 11", " 12", " 13", " 14", " 15", " 16", " 17", " 18", " 19",
+			" 20", " 21", " 22", " 23", " 24", " 25", " 26", " 27", " 28", " 29", " 30", " 31" };
+	
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
 		
-		System.out.println("두 수를 입력하세요.");
-
-		int inputA = scan.nextInt();
-		int inputB = scan.nextInt();
+		String[] copyOfArray = new String[28+3];
 		
-		System.out.printf("두 수의 합은 %d입니다.", inputA + inputB);
+		System.arraycopy(DATES, 0, copyOfArray, 3, 28);
 		
-		scan.close();
+		for(String test : copyOfArray) {
+			System.out.println("each String " + test);
+		}
+		
 	}
 }
